@@ -12,6 +12,7 @@ EXCLUSIVE_MODE = True  # Prevent bound codes from being seen by WebOS, must be T
 INPUT_DEVICE = sys.argv[1]  # Input device for the magic remote in bluetooth mode
 # INPUT_DEVICE = "/dev/input/event1"  # use this for IR remotes
 
+OUTPUT_DEVICE = sys.argv[2]
 OUTPUT_DEVICE = "/dev/input/event4"  # unbound codes get resent to this device in exclusive mode
 
 
