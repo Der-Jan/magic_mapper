@@ -6,8 +6,9 @@
 # so be sure to leave off the extension
 
 DEV=/dev/input/$(grep 'LGE M-RCU - Builtin \[0\]' /sys/class/input/event*/device/name | sed -e 's/.*\(event[0-9]\+\).*/\1/')
+ODEV=/dev/input/$(grep 'LGE M-RCU - Builtin \[1\]' /sys/class/input/event*/device/name | sed -e 's/.*\(event[0-9]\+\).*/\1/')
 if [ -f "/usr/bin/python" ]; then
-  nohup /usr/bin/python -u /home/root/magic_mapper.py $DEV > /tmp/magic_mapper.log 2>&1 &
+  nohup /usr/bin/python -u /home/root/magic_mapper.py $DEV $ODEV > /tmp/magic_mapper.log 2>&1 &
 else
-  nohup /usr/bin/python3 -u /home/root/magic_mapper.py $DEV > /tmp/magic_mapper.log 2>&1 &
+  nohup /usr/bin/python3 -u /home/root/magic_mapper.py $DEV $ODEV > /tmp/magic_mapper.log 2>&1 &
 fi
